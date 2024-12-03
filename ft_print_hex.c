@@ -1,50 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsampaio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 04:40:46 by gsampaio          #+#    #+#             */
-/*   Updated: 2024/11/27 05:33:41 by gsampaio         ###   ########.fr       */
+/*   Created: 2024/12/03 02:57:53 by gsampaio          #+#    #+#             */
+/*   Updated: 2024/12/03 03:00:34 by gsampaio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_itoa(int n)
+int	ft_print_hex(unsigned int n, int uppercase)
 {
-	char			*str;
-	unsigned long	num;
-	int				len;
+	char		*hex_str;
+	int			len;
 
-	num = n;
-	len = count_ch(n);
-	str = malloc(len + 1);
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
-	if (n < 0)
-		str[0] = '-';
-	while (len-- > (str[0] == '-'))
-	{
-		str[len] = num % 10 + '0';
-		num /= 10;
-	}
-	return (str);
-}
-
-int	count_ch(int n)
-{
-	int	len;
-
-	len = 0;
-	if (n < 0)
-		len = 1;
-	while (n)
-	{
-		n /= 10;
-		len ++;
-	}
+	hex_str = ft_itoa_baste(n, 16, uppercase);
+	if (!hex_str)
+		return (0);
+	len = ft_print_string(hex_str);
+	free(hex_str);
 	return (len);
 }

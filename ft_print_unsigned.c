@@ -1,50 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsampaio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 04:40:46 by gsampaio          #+#    #+#             */
-/*   Updated: 2024/11/27 05:33:41 by gsampaio         ###   ########.fr       */
+/*   Created: 2024/12/03 02:47:53 by gsampaio          #+#    #+#             */
+/*   Updated: 2024/12/03 04:15:32 by gsampaio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_itoa(int n)
+int	ft_print_unsigned(unsigned int n)
 {
-	char			*str;
-	unsigned long	num;
-	int				len;
+	char		*num_str;
+	int			len;
 
-	num = n;
-	len = count_ch(n);
-	str = malloc(len + 1);
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
-	if (n < 0)
-		str[0] = '-';
-	while (len-- > (str[0] == '-'))
-	{
-		str[len] = num % 10 + '0';
-		num /= 10;
-	}
-	return (str);
-}
-
-int	count_ch(int n)
-{
-	int	len;
-
-	len = 0;
-	if (n < 0)
-		len = 1;
-	while (n)
-	{
-		n /= 10;
-		len ++;
-	}
+	num_str = ft_utoa(n);
+	len = print_string(num_str);
+	free(num_str);
 	return (len);
 }
