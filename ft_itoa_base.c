@@ -6,7 +6,7 @@
 /*   By: gsampaio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 04:40:33 by gsampaio          #+#    #+#             */
-/*   Updated: 2024/11/27 05:35:32 by gsampaio         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:09:52 by gsampaio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ char	*ft_itoa_base(unsigned long n, int base, int uppercase)
 	else
 		digits = "0123456789abcdef";
 	len = 0;
-	if (n == 0)
-		return (strdup("0"));
+	//if (n == 0)
+		//return (strdup("0"));
 	while (n)
 	{
 		buffer[len++] = digits[n % base];

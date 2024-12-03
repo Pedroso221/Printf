@@ -6,11 +6,13 @@
 /*   By: gsampaio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 04:40:46 by gsampaio          #+#    #+#             */
-/*   Updated: 2024/11/27 05:33:41 by gsampaio         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:12:23 by gsampaio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int     count_ch(int n);
 
 char	*ft_itoa(int n)
 {

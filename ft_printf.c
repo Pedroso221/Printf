@@ -6,11 +6,13 @@
 /*   By: gsampaio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 04:43:38 by gsampaio          #+#    #+#             */
-/*   Updated: 2024/11/27 05:41:30 by gsampaio         ###   ########.fr       */
+/*   Updated: 2024/12/03 20:53:00 by gsampaio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int     handle_specifier(char specifier, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
@@ -40,18 +42,21 @@ int	ft_printf(const char *format, ...)
 int	handle_specifier(char specifier, va_list args)
 {
 	if (specifier == 'c')
-		return (print_char(va_arg(args, int)));
+		return (ft_print_char(va_arg(args, int)));
 	if (specifier == 's')
-		return (print_string(va_arg(args, char *)));
+		return (ft_print_string(va_arg(args, char *)));
 	if (specifier == 'd' || specifier == 'i')
-		return (print_integer(va_arg(args, int)));
+		return (ft_print_integer(va_arg(args, int)));
 	if (specifier == 'u')
-		return (print_unsigned(va_arg(args, unsigned int)));
+		return (ft_print_unsigned(va_arg(args, unsigned int)));
 	if (specifier == 'x' || specifier == 'X')
-		return (print_hex(va_arg(args, unsigned int), specifier == 'X'));
+		return (ft_print_hex(va_arg(args, unsigned int), specifier == 'X'));
 	if (specifier == 'p')
-		return (print_pointer(va_arg(args, void *)));
+		return (ft_print_pointer(va_arg(args, void *)));
 	if (specifier == '%')
-		return (write(1, "%", 1));
+	{
+		(write(1, "%", 1));
+		return (1);
+	}
 	return (0);
 }
