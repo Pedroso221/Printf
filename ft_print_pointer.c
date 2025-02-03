@@ -16,18 +16,15 @@ int	ft_print_pointer(void *ptr)
 {
 	unsigned long	addr;
 	char			*ptr_str;
-	int				len;
+	int				len;	
 
+	if (!ptr)
+		return (ft_print_string("(nil)"));
 	addr = (unsigned long)ptr;
 	ptr_str = ft_itoa_base(addr, 16, 0);
 	if (!ptr_str)
 		return (0);
 	len = ft_print_string("0x");
-	if (len < 0)
-	{
-		free(ptr_str);
-		return (0);
-	}
 	len += ft_print_string(ptr_str);
 	free(ptr_str);
 	return (len);

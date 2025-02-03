@@ -17,7 +17,7 @@ int	ft_print_hex(unsigned int n, int uppercase)
 	char		*hex_str;
 	int			len;
 
-	hex_str = ft_itoa_baste(n, 16, uppercase);
+	hex_str = ft_itoa_base(n, 16, uppercase);
 	if (!hex_str)
 		return (0);
 	len = ft_print_string(hex_str);

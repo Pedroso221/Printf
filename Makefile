@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRCS = ft_printf.c ft_print_integer.c ft_print_char.c ft_print_string.c ft_print_pointer.c ft_print_unsigned.c ft_itoa_base.c ft_itoa.c ft_utoa.c ft_print_hex.c
+SRCS = ft_handle_specifier.c ft_printf.c ft_print_integer.c ft_print_char.c ft_print_string.c ft_print_pointer.c ft_print_unsigned.c ft_itoa_base.c ft_itoa.c ft_utoa.c ft_print_hex.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror

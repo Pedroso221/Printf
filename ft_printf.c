@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int     handle_specifier(char specifier, va_list args);
+int	handle_specifier(char specifier, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
@@ -38,25 +38,65 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+/*
+#include <stdio.h>
 
-int	handle_specifier(char specifier, va_list args)
+int	main(void)
 {
-	if (specifier == 'c')
-		return (ft_print_char(va_arg(args, int)));
-	if (specifier == 's')
-		return (ft_print_string(va_arg(args, char *)));
-	if (specifier == 'd' || specifier == 'i')
-		return (ft_print_integer(va_arg(args, int)));
-	if (specifier == 'u')
-		return (ft_print_unsigned(va_arg(args, unsigned int)));
-	if (specifier == 'x' || specifier == 'X')
-		return (ft_print_hex(va_arg(args, unsigned int), specifier == 'X'));
-	if (specifier == 'p')
-		return (ft_print_pointer(va_arg(args, void *)));
-	if (specifier == '%')
-	{
-		(write(1, "%", 1));
-		return (1);
-	}
+	char			a;
+	char			*str;
+	char			*str2;
+	int				i;
+	unsigned int	hex;
+
+	a = 'a';
+	str = "ugdygd";
+	str2 = "10";
+	i = -42174612;
+	hex = 4294967286;  // Equivalente a -10 em unsigned
+
+	// %c
+	write(1, "ft_c\n", 5);
+	printf("%d\n", printf("%c\n", a));
+	printf("%d\n", ft_printf("%c\n", a));
+	printf("\n\n");
+
+	// %s
+	write(1, "ft_s\n", 5);
+	printf("%d\n", printf("%s\n", str));
+	printf("%d\n", ft_printf("%s\n", str));
+	printf("\n\n");
+
+	// %p
+	write(1, "ft_p\n", 5);
+	printf("%d\n", printf("%p\n", (void *)str2));
+	printf("%d\n", ft_printf("%p\n", (void *)str2));
+	printf("\n\n");
+
+	// %d
+	write(1, "ft_d\n", 5);
+	printf("%d\n", printf("%d\n", i));
+	printf("%d\n", ft_printf("%d\n", i));
+	printf("\n\n");
+
+	// %x
+	write(1, "ft_x\n", 5);
+	printf("%d\n", printf("%x\n", hex));
+	printf("%d\n", ft_printf("%x\n", hex));
+	printf("\n\n");
+
+	// %X
+	write(1, "ft_X\n", 5);
+	printf("%d\n", printf("%X\n", hex));
+	printf("%d\n", ft_printf("%X\n", hex));
+	printf("\n\n");
+
+	// %%
+	write(1, "ft_percent\n", 12);
+	printf("%d\n", printf("%%\n"));
+	printf("%d\n", ft_printf("%%\n"));
+	printf("\n\n");
+
 	return (0);
 }
+*/

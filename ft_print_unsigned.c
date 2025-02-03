@@ -18,6 +18,8 @@ int	ft_print_unsigned(unsigned int n)
 	int			len;
 
 	num_str = ft_utoa(n);
+	if (!num_str)
+		return (0);
 	len = ft_print_string(num_str);
 	free(num_str);
 	return (len);
